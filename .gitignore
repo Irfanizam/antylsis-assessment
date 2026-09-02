@@ -1,0 +1,20 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+# env
+.env
+.env.local
+.env.*.local
+
+# uploaded receipt files (runtime store)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# os / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.stackdump

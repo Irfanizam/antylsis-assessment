@@ -92,7 +92,7 @@ export const openapiSpec = {
         type: 'object',
         properties: {
           id: { type: 'string', format: 'uuid' },
-          code: { type: 'string', example: 'LP-7K2M...' },
+          code: { type: 'string', example: 'RH-7K2M...' },
           amount: { type: 'string' },
           currency: { type: 'string' },
           status: { type: 'string', enum: ['ACTIVE', 'REDEEMED', 'EXPIRED'] },

@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 // Fixed test database URL (kept in step with vitest.config.ts). Hardcoded here because
 // globalSetup does not inherit the per-test `env` block.
-const testUrl = 'postgresql://loyalty:loyalty@localhost:5544/loyalty_test';
+const testUrl = 'postgresql://receipthub:receipthub@localhost:5544/receipthub_test';
 
 // Runs once before the whole suite: ensures the test database exists and is migrated.
 export default async function setup(): Promise<void> {
@@ -11,11 +11,11 @@ export default async function setup(): Promise<void> {
   const adminUrl = testUrl.replace(/\/([^/?]+)(\?.*)?$/, '/postgres$2');
   const admin = new PrismaClient({ datasources: { db: { url: adminUrl } } });
   try {
-    await admin.$executeRawUnsafe('CREATE DATABASE "loyalty_test"');
+    await admin.$executeRawUnsafe('CREATE DATABASE "receipthub_test"');
   } catch (e) {
     const msg = String((e as { message?: string })?.message ?? e);
     if (!msg.includes('already exists') && !msg.includes('42P04')) {
-      console.warn('Could not create loyalty_test (continuing):', msg.split('\n')[0]);
+      console.warn('Could not create receipthub_test (continuing):', msg.split('\n')[0]);
     }
   } finally {
     await admin.$disconnect();

@@ -21,7 +21,7 @@ const schema = z.object({
   VOUCHER_VALUE: z.coerce.number().positive().default(5),
   VOUCHER_VALIDITY_DAYS: z.coerce.number().int().positive().default(90),
 
-  SEED_ADMIN_EMAIL: z.string().email().default('admin@loyalty.test'),
+  SEED_ADMIN_EMAIL: z.string().email().default('admin@receipthub.test'),
   SEED_ADMIN_PASSWORD: z.string().min(8).default('Admin123!'),
   SEED_USER_PASSWORD: z.string().min(8).default('User123!'),
 });

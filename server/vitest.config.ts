@@ -13,7 +13,7 @@ export default defineConfig({
     // Point the app + Prisma at a dedicated test database (set before config/env loads).
     env: {
       NODE_ENV: 'test',
-      DATABASE_URL: 'postgresql://loyalty:loyalty@localhost:5544/loyalty_test',
+      DATABASE_URL: 'postgresql://receipthub:receipthub@localhost:5544/receipthub_test',
     },
   },
 });

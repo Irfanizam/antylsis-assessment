@@ -69,9 +69,9 @@ Created by `npm run db:seed`:
 
 | Role | Login | Password |
 |---|---|---|
-| Administrator | `admin@loyalty.test` | `Admin123!` |
-| Customer (with receipts) | `alice@loyalty.test` | `User123!` |
-| Customer (empty) | `bob@loyalty.test` | `User123!` |
+| Administrator | `admin@receipthub.test` | `Admin123!` |
+| Customer (with receipts) | `alice@receipthub.test` | `User123!` |
+| Customer (empty) | `bob@receipthub.test` | `User123!` |
 
 A quick walkthrough: sign in as **alice** to see receipts and a voucher, or as **bob** and upload a
 receipt; then sign in as the **admin** to approve it and watch a voucher get issued.

@@ -57,9 +57,9 @@ describe('receipt approval and voucher issuance', () => {
     const user = await agentFor('user@t.co');
     const id = await submitReceipt(user, 'ORD-E');
 
-    await prisma.voucher.create({ data: { code: 'LP-TESTONE', receiptId: id, userId: owner.id, amount: '5.00' } });
+    await prisma.voucher.create({ data: { code: 'RH-TESTONE', receiptId: id, userId: owner.id, amount: '5.00' } });
     await expect(
-      prisma.voucher.create({ data: { code: 'LP-TESTTWO', receiptId: id, userId: owner.id, amount: '5.00' } }),
+      prisma.voucher.create({ data: { code: 'RH-TESTTWO', receiptId: id, userId: owner.id, amount: '5.00' } }),
     ).rejects.toThrow();
   });
 });

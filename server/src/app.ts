@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import { randomUUID } from 'node:crypto';
 import { env } from './config/env';
 import { errorHandler, notFound } from './middleware/errorHandler';
+import { authRouter } from './modules/auth/auth.routes';
 
 /**
  * Builds the Express app (no listen) so tests can import it with Supertest.
@@ -28,7 +29,8 @@ export function createApp(): Express {
     res.json({ status: 'ok', env: env.NODE_ENV, uptime: process.uptime() });
   });
 
-  // --- feature routers mount here (added per feature branch) ---
+  // --- feature routers ---
+  app.use('/api/auth', authRouter);
 
   app.use(notFound);
   app.use(errorHandler);

@@ -10,6 +10,8 @@ import { receiptsRouter } from './modules/receipts/receipts.routes';
 import { adminRouter } from './modules/admin/admin.routes';
 import { vouchersRouter } from './modules/vouchers/vouchers.routes';
 import { meRouter } from './modules/me/me.routes';
+import swaggerUi from 'swagger-ui-express';
+import { openapiSpec } from './docs/openapi';
 
 /**
  * Builds the Express app (no listen) so tests can import it with Supertest.
@@ -39,6 +41,10 @@ export function createApp(): Express {
   app.use('/api/admin', adminRouter);
   app.use('/api/vouchers', vouchersRouter);
   app.use('/api/me', meRouter);
+
+  // API documentation (Swagger UI + raw spec)
+  app.get('/api/docs.json', (_req, res) => res.json(openapiSpec));
+  app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(openapiSpec, { customSiteTitle: 'Loyalty API docs' }));
 
   app.use(notFound);
   app.use(errorHandler);

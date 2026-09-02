@@ -44,7 +44,7 @@ export function createApp(): Express {
 
   // API documentation (Swagger UI + raw spec)
   app.get('/api/docs.json', (_req, res) => res.json(openapiSpec));
-  app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(openapiSpec, { customSiteTitle: 'Loyalty API docs' }));
+  app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(openapiSpec, { customSiteTitle: 'Receipt Hub API docs' }));
 
   app.use(notFound);
   app.use(errorHandler);

@@ -1,9 +1,9 @@
 {
-  "name": "loyalty-server",
+  "name": "receipt-hub-server",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Loyalty Program API — Express + Prisma + PostgreSQL",
+  "description": "Receipt Hub API — Express + Prisma + PostgreSQL",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "tsx src/server.ts",

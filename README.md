@@ -1,6 +1,6 @@
-# Loyalty Program
+# Receipt Hub
 
-A full-stack loyalty application. Customers register, upload their purchase receipts, and receive a
+A full-stack receipt-rewards application. Customers register, upload their purchase receipts, and receive a
 voucher once an administrator approves the receipt. Built with **React, Express, and PostgreSQL**.
 
 ## Features

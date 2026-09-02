@@ -17,7 +17,7 @@ const errorResponse = {
 export const openapiSpec = {
   openapi: '3.0.3',
   info: {
-    title: 'Loyalty Program API',
+    title: 'Receipt Hub API',
     version: '1.0.0',
     description:
       'Customers upload purchase receipts; an administrator approves them and the system issues ' +

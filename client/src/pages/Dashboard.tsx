@@ -19,7 +19,7 @@ export function Dashboard() {
   return (
     <div>
       <h1>Welcome{user?.fullName ? `, ${user.fullName}` : ''}</h1>
-      <p className="muted">Your loyalty activity at a glance.</p>
+      <p className="muted">Your receipts at a glance.</p>
       <div className="cards">
         <div className="card">
           <div className="num">{s?.pendingReceipts ?? '—'}</div>

@@ -4,5 +4,5 @@ import { env } from './config/env';
 const app = createApp();
 
 app.listen(env.PORT, () => {
-  console.log(`🚀 Loyalty API listening on http://localhost:${env.PORT} (${env.NODE_ENV})`);
+  console.log(`🚀 Receipt Hub API listening on http://localhost:${env.PORT} (${env.NODE_ENV})`);
 });

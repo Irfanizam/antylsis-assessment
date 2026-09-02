@@ -1,8 +1,8 @@
 {
-  "name": "loyalty-program",
+  "name": "receipt-hub",
   "version": "1.0.0",
   "private": true,
-  "description": "Full-stack loyalty application — receipts in, vouchers out.",
+  "description": "Full-stack receipt-rewards application — receipts in, vouchers out.",
   "scripts": {
     "setup": "npm --prefix server install && npm --prefix client install",
     "db:up": "docker compose up -d db",

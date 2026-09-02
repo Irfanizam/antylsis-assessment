@@ -11,7 +11,7 @@ export function Layout() {
       <nav className="nav">
         <div className="nav-inner">
           <NavLink to={isAdmin ? '/admin' : '/'} className="brand">
-            Loyalty
+            Receipt Hub
           </NavLink>
           {isAdmin ? (
             <>

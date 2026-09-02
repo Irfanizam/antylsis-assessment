@@ -29,7 +29,7 @@ export function Login() {
     <div className="auth-wrap">
       <form className="auth-card" onSubmit={submit}>
         <h1>Sign in</h1>
-        <p className="muted">Loyalty Program</p>
+        <p className="muted">Receipt Hub</p>
         {error && <div className="msg error">{error}</div>}
         <label>Email or phone</label>
         <input value={identifier} onChange={(e) => setIdentifier(e.target.value)} autoFocus />

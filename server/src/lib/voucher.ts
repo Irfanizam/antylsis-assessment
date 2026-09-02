@@ -8,7 +8,7 @@ export function generateVoucherCode(): string {
   const bytes = randomBytes(10);
   let out = '';
   for (const b of bytes) out += ALPHABET[b % ALPHABET.length];
-  return `LP-${out}`;
+  return `RH-${out}`;
 }
 
 /** Voucher worth — a product decision kept in config, snapshotted onto each voucher at issue time. */

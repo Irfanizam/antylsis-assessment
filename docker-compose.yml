@@ -1,18 +1,18 @@
 services:
   db:
     image: postgres:16-alpine
-    container_name: loyalty_db
+    container_name: receipthub_db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: loyalty
-      POSTGRES_PASSWORD: loyalty
-      POSTGRES_DB: loyalty
+      POSTGRES_USER: receipthub
+      POSTGRES_PASSWORD: receipthub
+      POSTGRES_DB: receipthub
     ports:
       - "5544:5432"          # host 5544 → avoids clashing with any local Postgres on 5432
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U loyalty -d loyalty"]
+      test: ["CMD-SHELL", "pg_isready -U receipthub -d receipthub"]
       interval: 5s
       timeout: 5s
       retries: 10

@@ -20,7 +20,7 @@ function voucherCode(): string {
   const bytes = randomBytes(8);
   let out = '';
   for (const b of bytes) out += alphabet[b % alphabet.length];
-  return `LP-${out}`;
+  return `RH-${out}`;
 }
 
 /** Copy a sample image into the runtime store under a random key. */
@@ -41,14 +41,14 @@ async function main() {
     create: { email: env.SEED_ADMIN_EMAIL, passwordHash: adminPassword, role: 'ADMIN', fullName: 'Receipt Hub Admin' },
   });
   const alice = await prisma.user.upsert({
-    where: { email: 'alice@loyalty.test' },
+    where: { email: 'alice@receipthub.test' },
     update: { passwordHash: userPassword, fullName: 'Alice Tan' },
-    create: { email: 'alice@loyalty.test', passwordHash: userPassword, fullName: 'Alice Tan' },
+    create: { email: 'alice@receipthub.test', passwordHash: userPassword, fullName: 'Alice Tan' },
   });
   const bob = await prisma.user.upsert({
-    where: { email: 'bob@loyalty.test' },
+    where: { email: 'bob@receipthub.test' },
     update: { passwordHash: userPassword, fullName: 'Bob Lim' },
-    create: { email: 'bob@loyalty.test', passwordHash: userPassword, fullName: 'Bob Lim' },
+    create: { email: 'bob@receipthub.test', passwordHash: userPassword, fullName: 'Bob Lim' },
   });
 
   // Reset seed users' receipts/vouchers so the seed is idempotent (vouchers first — FK is Restrict).
@@ -100,8 +100,8 @@ async function main() {
   console.log('\nSeed complete. Demo accounts:');
   console.table([
     { role: 'ADMIN', email: env.SEED_ADMIN_EMAIL, password: env.SEED_ADMIN_PASSWORD },
-    { role: 'USER', email: 'alice@loyalty.test', password: env.SEED_USER_PASSWORD },
-    { role: 'USER (empty)', email: 'bob@loyalty.test', password: env.SEED_USER_PASSWORD },
+    { role: 'USER', email: 'alice@receipthub.test', password: env.SEED_USER_PASSWORD },
+    { role: 'USER (empty)', email: 'bob@receipthub.test', password: env.SEED_USER_PASSWORD },
   ]);
 }
 

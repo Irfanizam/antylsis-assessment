@@ -8,6 +8,8 @@ import { errorHandler, notFound } from './middleware/errorHandler';
 import { authRouter } from './modules/auth/auth.routes';
 import { receiptsRouter } from './modules/receipts/receipts.routes';
 import { adminRouter } from './modules/admin/admin.routes';
+import { vouchersRouter } from './modules/vouchers/vouchers.routes';
+import { meRouter } from './modules/me/me.routes';
 
 /**
  * Builds the Express app (no listen) so tests can import it with Supertest.
@@ -35,6 +37,8 @@ export function createApp(): Express {
   app.use('/api/auth', authRouter);
   app.use('/api/receipts', receiptsRouter);
   app.use('/api/admin', adminRouter);
+  app.use('/api/vouchers', vouchersRouter);
+  app.use('/api/me', meRouter);
 
   app.use(notFound);
   app.use(errorHandler);

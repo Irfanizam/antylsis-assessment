@@ -7,7 +7,7 @@ voucher once an administrator approves the receipt. Built with **React, Express,
 
 **Customer**
 - Register and sign in with an email address or phone number
-- Upload a purchase receipt (image or PDF) with its order ID, purchase date, and amount
+- Upload a purchase receipt (image or PDF) with the order number from the receipt, purchase date, and amount
 - Track submitted receipts and their status (pending / approved / rejected)
 - View vouchers issued for approved receipts
 - Manage profile details

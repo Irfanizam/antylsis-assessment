@@ -5,7 +5,7 @@ const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000;
 // Multipart delivers every text field as a string, so amount is validated as a 2-decimal string.
 export const createReceiptSchema = z
   .object({
-    orderId: z.string().trim().min(1, 'Order id is required').max(64),
+    orderId: z.string().trim().min(1, 'Order number is required').max(64),
     purchaseDate: z.coerce
       .date({ errorMap: () => ({ message: 'Enter a valid purchase date' }) })
       .refine((d) => d.getTime() <= Date.now(), 'Purchase date cannot be in the future')

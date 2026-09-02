@@ -75,7 +75,7 @@ export const openapiSpec = {
         type: 'object',
         properties: {
           id: { type: 'string', format: 'uuid' },
-          orderId: { type: 'string' },
+          orderId: { type: 'string', description: 'The order/reference number printed on the receipt' },
           purchaseDate: { type: 'string', format: 'date' },
           amount: { type: 'string', example: '120.50' },
           currency: { type: 'string', example: 'MYR' },
@@ -198,7 +198,7 @@ export const openapiSpec = {
                 type: 'object',
                 properties: {
                   receipt: { type: 'string', format: 'binary' },
-                  orderId: { type: 'string' },
+                  orderId: { type: 'string', description: 'The order/reference number printed on the receipt' },
                   purchaseDate: { type: 'string', format: 'date' },
                   amount: { type: 'string' },
                 },

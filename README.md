@@ -33,34 +33,52 @@ voucher once an administrator approves the receipt. Built with **React, Express,
 
 **Prerequisites:** Node.js 20+, Docker (for PostgreSQL) or a local PostgreSQL 16 instance.
 
-**1. Database**
 ```bash
-docker compose up -d db
+cp server/.env.example server/.env    # set JWT_SECRET to a long random string
+cp client/.env.example client/.env
+
+npm install        # root dev tooling (concurrently)
+npm run setup      # install server + client dependencies
+npm run db:up      # start PostgreSQL in Docker
+npm run db:migrate # apply the database schema
+npm run db:seed    # demo accounts + sample data
+npm run dev        # API on :4000, web on :5173
 ```
 
-**2. Backend**
-```bash
-cd server
-cp .env.example .env          # set JWT_SECRET to a long random string
-npm install
-npm run prisma:migrate        # apply the database schema
-npm run seed                  # demo accounts + sample data
-npm run dev                   # http://localhost:4000
-```
+Then open http://localhost:5173. API health check: `curl http://localhost:4000/api/health`.
 
-**3. Frontend**
-```bash
-cd client
-cp .env.example .env
-npm install
-npm run dev                   # http://localhost:5173
-```
+<details>
+<summary>Run the API and the web app separately</summary>
 
-API health check: `curl http://localhost:4000/api/health`.
+```bash
+# terminal 1 — API
+cd server && npm install && npm run prisma:migrate && npm run seed && npm run dev
+
+# terminal 2 — web
+cd client && npm install && npm run dev
+```
+</details>
 
 > Migrations are applied with `prisma migrate deploy`. The schema relies on PostgreSQL features
 > (a partial unique index, `CHECK` constraints, and an `updated_at` trigger) that are kept in a
 > hand-written migration alongside the Prisma-generated tables.
+
+## Demo accounts
+
+Created by `npm run db:seed`:
+
+| Role | Login | Password |
+|---|---|---|
+| Administrator | `admin@loyalty.test` | `Admin123!` |
+| Customer (with receipts) | `alice@loyalty.test` | `User123!` |
+| Customer (empty) | `bob@loyalty.test` | `User123!` |
+
+A quick walkthrough: sign in as **alice** to see receipts and a voucher, or as **bob** and upload a
+receipt; then sign in as the **admin** to approve it and watch a voucher get issued.
+
+## API documentation
+
+Interactive Swagger UI is served at **http://localhost:4000/api/docs** (raw spec at `/api/docs.json`).
 
 ## Project structure
 
@@ -108,3 +126,7 @@ validation.
 AI tooling was used to speed up boilerplate and scaffolding. The data model, the receipt-approval and
 voucher-issuance logic, the authorization rules, and the database constraints were designed and
 reviewed by hand.
+
+## License
+
+[MIT](LICENSE).

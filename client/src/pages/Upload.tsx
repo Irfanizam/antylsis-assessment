@@ -44,11 +44,11 @@ export function Upload() {
           <label>Receipt file (JPEG, PNG, WebP or PDF — max 5 MB)</label>
           <input type="file" accept={ACCEPT} onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
           <label>Order number</label>
-          <p className="hint">The order or reference number printed on your receipt — it lets us reward each purchase only once.</p>
+          <p className="hint">The reference number on your receipt.</p>
           <input
             value={orderId}
             onChange={(e) => setOrderId(e.target.value)}
-            placeholder="e.g. the number printed on your receipt"
+            placeholder="e.g. INV-100294"
           />
           <label>Purchase date</label>
           <input type="date" value={purchaseDate} onChange={(e) => setPurchaseDate(e.target.value)} />
